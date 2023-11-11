@@ -22,7 +22,7 @@ describe file('/home/myuser/dupont.priv'), :if => os[:family] == 'ubuntu' && os[
   it { should be_file }
 end
 
-describe file('/home/myuser/dupont.asc') do
+describe file('/home/myuser/dupont.gpg') do
   it { should be_file }
   its(:content) { should match /-----BEGIN PGP PUBLIC KEY BLOCK-----/ }
 end

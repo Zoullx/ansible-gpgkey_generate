@@ -8,14 +8,16 @@ A simple ansible role to generate gpg keys automatically and with sane secure de
 ## Requirements & Dependencies
 
 ### Ansible
+
 It was tested on the following versions:
- * 1.9
- * 2.0
- * 2.5
+
+- 1.9
+- 2.0
+- 2.5
 
 ### Operating systems
 
-Tested on Ubuntu 14.04, 16.04, 18.04 and centos7
+Tested on Ubuntu 14.04, 16.04, 18.04, 23.10 and centos7
 
 ## Example Playbook
 
@@ -37,6 +39,7 @@ Complete list of available variables can be found in
 [defaults/main.yml](defaults/main.yml).
 
 Notable variables are:
+
 ```
 gpg_generator_user: "{{ ansible_user }}"
 gpg_user: "{{ ansible_user }}"
@@ -60,9 +63,8 @@ $ kitchen verify
 $ kitchen login
 ```
 
-* Travis test has been reviewed to use docker as multi-platform test.
-Because of limitations, some shims are put in place like mapping /dev/urandom to /dev/random so gpg key generation can happen. Normally rng-tools or haveged are taking care of that.
-
+- Travis test has been reviewed to use docker as multi-platform test.
+  Because of limitations, some shims are put in place like mapping /dev/urandom to /dev/random so gpg key generation can happen. Normally rng-tools or haveged are taking care of that.
 
 ## License
 
