@@ -84,12 +84,12 @@
     mode: "0700"
     owner: "{{ gpg_generator_user }}"
 
-- name: Set default gpg options
-  ansible.builtin.template:
-    src: "{{ gpg_conf_file_template }}"
-    dest: "{{ gpg_home }}/.gnupg/gpg.conf"
-    mode: "0600"
-    owner: "{{ gpg_generator_user }}"
+# - name: Set default gpg options
+#   ansible.builtin.template:
+#     src: "{{ gpg_conf_file_template }}"
+#     dest: "{{ gpg_home }}/.gnupg/gpg.conf"
+#     mode: "0600"
+#     owner: "{{ gpg_generator_user }}"
 
 - name: Write GPG passphrase to file
   ansible.builtin.copy:
@@ -99,9 +99,9 @@
     owner: "{{ gpg_generator_user }}"
   register: passphrase_file_created
 
-- name: Import gpg21
-  ansible.builtin.import_tasks: gpg21.yml
-  when: ansible_distribution == 'Ubuntu' and ansible_distribution_major_version|int > 16
+# - name: Import gpg21
+#   ansible.builtin.import_tasks: gpg21.yml
+#   when: ansible_distribution == 'Ubuntu' and ansible_distribution_major_version|int > 16
 
 ## Note: matching on realname or email doesn't allow to create multiple keys. alternative?
 - name: Check existing secret key
