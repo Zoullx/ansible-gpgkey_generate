@@ -155,7 +155,7 @@
 
 - name: Get user public key
   ansible.builtin.command: >
-    gpg --batch --homedir "{{ gpg_home }}/.gnupg"
+    gpg --homedir "{{ gpg_home }}/.gnupg"
         --output "{{ gpg_home }}/{{ gpg_pubkeyfileexport }}"
         --export "{{ gpg_useremail }}"
   args:
@@ -165,7 +165,7 @@
 
 - name: Get user secret key
   ansible.builtin.command: >
-    gpg --batch --homedir "{{ gpg_home }}/.gnupg"
+    gpg --homedir "{{ gpg_home }}/.gnupg"
         --passphrase-file "{{ gpg_home + '/' + gpg_passphrase_file }}"
         --output "{{ gpg_home }}/{{ gpg_privkeyfile }}"
         --export-secret-key "{{ gpg_useremail }}"
